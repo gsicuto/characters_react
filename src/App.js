@@ -4,10 +4,10 @@ import axios from 'axios';
 
 import "./App.css";
 
-import CharacterCard from "./components/CharacterCard";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import CharactersList from "./components/CharactersList";
 
 
 
@@ -33,6 +33,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/characters" render={(props) => <CharactersList {...props} characters={this.state.charactersList}/>} />
         </Switch>
         <Footer />
       </>
