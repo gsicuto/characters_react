@@ -11,25 +11,17 @@ import CharactersList from "./views/CharactersList";
 
 class App extends Component {
   state = {
-    charactersList: [
-      {
-        name: "Bob Esponja",
-        occupation: "Chapeiro",
-        weapon: "Espátula",
-        cartoon: true,
-      },
-    ],
+    charactersList: [],
   };
 
-  // componentDidMount = () => {
-  //   console.log(process.env)
-  //   axios.get(`http://localhost:8000/characters`)
-  //     .then((result)=>{
-  //       this.setState({
-  //         charactersList: result.data
-  //       })
-  //     })
-  // }
+  componentDidMount = () => {
+    console.log(process.env);
+    axios.get(`http://localhost:8000/characters`).then((result) => {
+      this.setState({
+        charactersList: result.data,
+      });
+    });
+  };
 
   render() {
     return (
