@@ -9,7 +9,7 @@ class CharacterEdit extends Component  {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:8000/characters/${this.props.match.params.characterId}`)
+    axios.get(`https://ironrest.herokuapp.com/characterSi/${this.props.match.params.characterId}`)
       .then((result) => {
         this.setState({
           selectedCharacter: result.data

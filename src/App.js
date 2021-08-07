@@ -22,7 +22,7 @@ class App extends Component {
   };
 
   getCharacters = () => {
-    axios.get(`http://localhost:8000/characters`).then((result) => {
+    axios.get(`https://ironrest.herokuapp.com/characterSi`).then((result) => {
       this.setState({
         charactersList: result.data,
       });
@@ -30,14 +30,14 @@ class App extends Component {
   }
 
   editCharacter = (id, updatedCharacter) => {
-    axios.put(`http://localhost:8000/characters/${id}`, updatedCharacter)
+    axios.put(`https://ironrest.herokuapp.com/characterSi/${id}`, updatedCharacter)
       .then((result) => {
         this.getCharacters();
       } )
   }
 
   createCharacter = (newCharacter) => {
-    axios.post(`http://localhost:8000/characters`, newCharacter)
+    axios.post(`https://ironrest.herokuapp.com/characterSi`, newCharacter)
       .then((result) => {
         this.getCharacters();
       })
