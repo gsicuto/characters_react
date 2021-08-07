@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Home from "./views/Home";
 import CharactersList from "./views/CharactersList";
 import CharacterEdit from "./views/CharacterEdit";
+import CharacterNew from "./views/CharacterNew";
 
 class App extends Component {
 
@@ -35,6 +36,13 @@ class App extends Component {
       } )
   }
 
+  createCharacter = (newCharacter) => {
+    axios.post(`http://localhost:8000/characters`, newCharacter)
+      .then((result) => {
+        this.getCharacters();
+      })
+  }
+
   render() {
     return (
       <>
@@ -55,6 +63,9 @@ class App extends Component {
               <CharacterEdit {...props} editCharacter= {this.editCharacter}/>
             )
           }}/>
+
+          <Route path = '/new-character' render={(props) => <CharacterNew {...props} createCharacter={this.createCharacter}/>}/>
+
         </Switch>
         <Footer />
       </>
