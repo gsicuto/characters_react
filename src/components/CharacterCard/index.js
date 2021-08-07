@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card, Name, Section, ButtonBox, Button, ButtonDelete } from "./styles";
 
 const CharacterCard = (props) => {
@@ -13,7 +14,7 @@ const CharacterCard = (props) => {
       <Section>{props.weapon}</Section>
       {props.cartoon ? "🦑" : "👎"}
       <ButtonBox>
-        <Button>Edit</Button>
+        <Link to= { `/edit-character/${props.id}` }><Button>Edit</Button></Link>
         <ButtonDelete>Delete</ButtonDelete>
       </ButtonBox>
     </Card>
